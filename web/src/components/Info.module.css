@@ -1,0 +1,20 @@
+.chart {
+
+    margin: 0 auto;
+    width: 800px;
+    background-color: #1F1F1F38;
+    border-radius: 25px;
+    border: 2px solid white;
+}
+
+.info {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.back {
+    cursor: pointer;
+    width: fit-content;
+}

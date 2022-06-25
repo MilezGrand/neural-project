@@ -1,0 +1,24 @@
+.dataBase ul {
+
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin: 0 auto;
+}
+
+.dataBase li{
+    background-color: #1F1F1F38;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 25px;
+    color: white;
+    text-align: center;
+
+}
+
+.dataBase {
+    margin-top: 50px;
+}

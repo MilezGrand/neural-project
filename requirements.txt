@@ -1,0 +1,9 @@
+numpy
+cv2
+insightface
+matplotlib
+flask
+keras
+os
+werkzeug
+json

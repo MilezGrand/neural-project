@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+    font-family: 'Montserrat', sans-serif;
+    background-color: #080808;
+}
+
+.form__upload {
+    width: 100%;
+    height: 450px;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+}
+
+.form__upload form {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.block__form__info p {
+    margin-bottom: 50px;
+}
+
+.form__upload .title {
+    margin-bottom: 50px;
+}
+
+input {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+    line-height: normal;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+label {
+    -webkit-text-size-adjust: 100%;
+    font-family: Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    box-sizing: border-box;
+    max-width: 80%;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    color: #363636;
+    border: 2px solid currentColor;
+    margin-bottom: 50px;
+}
+
+svg {
+    -webkit-text-size-adjust: 100%;
+    font-family: Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    color: #363636;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+
+button {
+    width: 213px;
+    height: 51px;
+    background-color: white;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid currentColor;
+    cursor: pointer;
+}

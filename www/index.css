@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter';
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    /* background-image: url("./background.png"); */
+    /* background-size: cover; */
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.block__header {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 44px;
+
+    width: 1200px;
+    /* background-color: #818181; */
+    display: flex;
+    flex-direction: row;
+}
+
+.block__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block__logo img {
+    width: 100px;
+    height: 100px;
+}
+
+.block__header__left {
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.block__header__buttons {
+    display: flex;
+    width: 800px;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.block__header__buttons a {
+    margin-right: 30px;
+}
+
+.pink {
+    color: #FF1779;
+}
+
+.block__form {
+    margin-top: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+    line-height: normal;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+label {
+    -webkit-text-size-adjust: 100%;
+    font-family: Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    box-sizing: border-box;
+    /* max-width: 80%; */
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    color: #363636;
+    border: 2px solid currentColor;
+    margin-bottom: 50px;
+}
+
+svg {
+    -webkit-text-size-adjust: 100%;
+    font-family: Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    color: #363636;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+
+button {
+    width: 213px;
+    height: 51px;
+    background-color: white;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid currentColor;
+    cursor: pointer;
+}
+
+.form__upload form {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}

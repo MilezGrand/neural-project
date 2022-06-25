@@ -1,0 +1,18 @@
+.chart {
+    padding-top: 70px;
+    margin: 0 auto;
+    width: 650px;
+}
+
+.results p {
+    margin: 0 auto;
+    font-weight: bold;
+    width: fit-content;
+    margin-bottom: 15px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+body {
+  background-color: black;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 86px auto 0 auto;
+  background-color: #1F1F1F38;
+  border: 2px solid white;
+  border-radius: 25px;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  height: 88px;
+  width: 337px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.logo img{
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+span {
+  color: #ff1779;
+  padding-top: 25px;
+}
+
+p {
+  margin-top: 0;
+  color: white;
+}
+
+.subtext {
+  font-size: 16px;
+  text-align: center;
+  font-family: "Inter";
+  padding-bottom: 20px;
+}
+
+li {
+  display: inline;
+  list-style-type: none;
+
+}
+
+ul {
+  font-family: "Inter";
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-left: 110px;
+  padding-right: 110px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.navbar {
+    background-color: #1F1F1F38;
+    border: 2px solid white;
+    border-radius: 25px;
+    width: 500px;
+    margin: 23px auto;
+}
+
+.active {
+  color: red;
+}
+
+.navItem a:hover {
+  color: grey;
+}
