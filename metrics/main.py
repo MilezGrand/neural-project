@@ -110,31 +110,34 @@ if __name__ == "__main__":
     current_time = time.time()
 
     for example in examples:
-        count = 0
-        vidcap = cv2.VideoCapture(f'./examples/{example}')
-        success,image = vidcap.read()
-        success = True
-        while success:
-            vidcap.set(cv2.CAP_PROP_POS_MSEC,(count * 1000))
+        try:
+            count = 0
+            vidcap = cv2.VideoCapture(f'./examples/{example}')
             success,image = vidcap.read()
-            print ('Read a new frame: ', success)
-            try:
-                cv2.imwrite(f'frame{filename_index}.jpg', image)
-            except:
-                success = False
-                continue
+            success = True
+            while success:
+                vidcap.set(cv2.CAP_PROP_POS_MSEC,(count * 1000))
+                success,image = vidcap.read()
+                print ('Read a new frame: ', success)
+                try:
+                    cv2.imwrite(f'frame{filename_index}.jpg', image)
+                except:
+                    success = False
+                    continue
 
-            faces = recognizer.detect_faces(os.path.join(os.getcwd(), f'frame{filename_index}.jpg'))
-            for face in faces:
-                emotions_of_person = recognizer.emotion(face)
-                index = __get_max_emotion(emotions_of_person)
-                my_dict[example.split("_")[0]] = index
-                os.remove(face)
+                faces = recognizer.detect_faces(os.path.join(os.getcwd(), f'frame{filename_index}.jpg'))
+                for face in faces:
+                    emotions_of_person = recognizer.emotion(face)
+                    index = __get_max_emotion(emotions_of_person)
+                    my_dict[example.split("_")[0]] = index
+                    os.remove(face)
 
-            os.remove(f'frame{filename_index}.jpg')
+                os.remove(f'frame{filename_index}.jpg')
 
-            count += 1
-            filename_index += 1
+                count += 1
+                filename_index += 1
+        except:
+            pass
 
     with open('metrics.csv', 'w') as f:
         f.write(f'filename,emotion')
