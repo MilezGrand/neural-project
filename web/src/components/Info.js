@@ -10,7 +10,7 @@ const Info = () => {
 
   React.useEffect(() => {
     const fetchData = async () => {
-        let personsResponse = await fetch(
+      let personsResponse = await fetch(
         `http://localhost:49812/database/emotions/get?id=${location.state.index}`
       );
 
@@ -36,11 +36,7 @@ const Info = () => {
     fetchData();
   }, []);
 
-  const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate("/lib");
-  };
 
   const [options, setOptions] = React.useState({
     series: [
@@ -51,21 +47,28 @@ const Info = () => {
     chart: {
       height: 350,
       type: "bar",
+      toolbar: {
+        show: false,
+      },
+      foreColor: '#FFF'
     },
     plotOptions: {
       bar: {
         borderRadius: 10,
+        horizontal: true,
         dataLabels: {
-          position: "top",
+          position: "bottom",
         },
       },
+    },
+    fill: {
+      colors: ["#FF1779"],
     },
     dataLabels: {
       enabled: true,
       formatter: function (val) {
         return Math.round(val) + "%";
       },
-      offsetY: 20,
       style: {
         fontSize: "12px",
         colors: ["white"],
@@ -82,60 +85,58 @@ const Info = () => {
         "Удивление",
         "Нейтральный",
       ],
-      position: "top",
-      style: {
-        colors: ["white"],
+      labels: {
+        show: true,
+        style: {
+          fontSize: "16px",
+          colors: ["lightgrey"],
+        },
       },
-
+      position: "top",
       axisBorder: {
         show: false,
       },
       axisTicks: {
         show: false,
       },
-      crosshairs: {
-        fill: {
-          type: "gradient",
-          gradient: {
-            colorFrom: "#D8E3F0",
-            colorTo: "#BED1E6",
-            stops: [0, 100],
-            opacityFrom: 0.4,
-            opacityTo: 0.5,
-          },
-        },
-      },
-      tooltip: {
-        enabled: false,
-      },
     },
     yaxis: {
+      max: 100,
       labels: {
-        show: false,
+        show: true,
+        offsetY: 5,
+        style: {
+          colors: ["#FFF"],
+          fontSize: "20px",
+          cssClass: 'apexcharts-yaxis-label',
+        },
       },
     },
     title: {
       text: "Средний спектр эмоций человека",
-      floating: true,
-      offsetY: 380,
+      offsetX: 0,
+      offsetY: 0,
       align: "center",
       style: {
         color: "#FFF",
+        fontSize: "16px",
+        fontFamily: "Inter",
       },
+    },
+    tooltip: {
+      enabled: false,
     },
   });
 
   return (
     <div className={s.info}>
-      <span onClick={handleClick} className={s.back}>
-        Назад
-      </span>
+
       <div className={s.chart}>
         <Chart
           options={options}
           series={options.series}
           type="bar"
-          width={790}
+          width={780}
           height={400}
         />
       </div>

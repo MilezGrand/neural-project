@@ -1,5 +1,5 @@
 .chart {
-
+    padding-top: 15px;
     margin: 0 auto;
     width: 800px;
     background-color: #1F1F1F38;
@@ -17,4 +17,9 @@
 .back {
     cursor: pointer;
     width: fit-content;
+}
+
+.apexcharts-yaxis-label {
+    color: green;
+    background-color: green;
 }

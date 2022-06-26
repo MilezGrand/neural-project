@@ -5,6 +5,7 @@ import { useNavigate  } from "react-router-dom";
 const Scan = () => {
     const formRef = React.useRef(null);
     const inputRef = React.useRef(null);
+    const labelRef = React.useRef(null);
     const navigate = useNavigate();
 
     var personsResponseJson;
@@ -18,7 +19,7 @@ const Scan = () => {
           method: 'POST',
           body: formData,
         };
-        
+        labelRef.current.innerText = "Подождите..."
         var personsResponse = await fetch('http://localhost:49812/emotion/recognize', options);
         personsResponseJson = await personsResponse.json()
 
@@ -27,6 +28,7 @@ const Scan = () => {
 
   return (
     <div>
+
       
       <form action="http://localhost:49812/emotion/recognize" method="post" id="upload-form" encType="multipart/form-data" ref={formRef} >
 
@@ -40,7 +42,7 @@ const Scan = () => {
           onChange={formClick}
           ref={inputRef}
         />
-        <label htmlFor="file">
+        <label htmlFor="file" ref={labelRef}>
           <img src="./img/upload.png" width="53" height="51"></img>
         </label>
       </form>

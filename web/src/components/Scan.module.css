@@ -29,6 +29,7 @@ input {
 }
 
 label {
+
     box-sizing: border-box;
     cursor: pointer;
     background-color: #1F1F1F38;
@@ -43,9 +44,11 @@ label {
     margin: 0 auto;
     width: 500px;
     height: 350px;
+    color: white;
+    font-size: 16px;
+    padding-top: 150px;
 }
 
 label img {
-    margin-top: 139px;
+    height: fit-content;
 }
-

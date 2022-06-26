@@ -1,7 +1,10 @@
 .chart {
-    padding-top: 70px;
+    padding-top: 30px;
     margin: 0 auto;
     width: 650px;
+    background-color: #1F1F1F38;
+    border: 2px solid white;
+    border-radius: 25px;
 }
 
 .results p {
@@ -15,4 +18,5 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 }

@@ -10,82 +10,92 @@ const Results = () => {
     const [options, setOptions] = React.useState({
         series: [
           {
-            name: "Уровень",
             data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
     
           },
         ],
         chart: {
-          height: 350,
-          type: "bar",
-        },
-        plotOptions: {
-          bar: {
-            borderRadius: 10,
-            dataLabels: {
-              position: "top",
+            height: 350,
+            type: "bar",
+            toolbar: {
+              show: false,
             },
+            foreColor: '#FFF'
           },
-        },
-        dataLabels: {
-          enabled: true,
-          formatter: function (val) {
-            return Math.round(val) + "%";
-          },
-          offsetY: -20,
-          style: {
-            fontSize: "12px",
-            colors: ["#304758"],
-          },
-        },
-    
-        xaxis: {
-          categories: [
-            "Счастье",
-            "Злость",
-            "Отвращение",
-            "Страх",
-            "Грусть",
-            "Удивление",
-            "Нейтральный",
-          ],
-          position: "top",
-          axisBorder: {
-            show: false,
-          },
-          axisTicks: {
-            show: false,
-          },
-          crosshairs: {
-            fill: {
-              type: "gradient",
-              gradient: {
-                colorFrom: "#D8E3F0",
-                colorTo: "#BED1E6",
-                stops: [0, 100],
-                opacityFrom: 0.4,
-                opacityTo: 0.5,
+          plotOptions: {
+            bar: {
+              borderRadius: 10,
+              horizontal: true,
+              dataLabels: {
+                position: "bottom",
               },
             },
           },
-          tooltip: {
+          fill: {
+            colors: ["#FF1779"],
+          },
+          dataLabels: {
             enabled: true,
+            formatter: function (val) {
+              return Math.round(val) + "%";
+            },
+            style: {
+              fontSize: "12px",
+              colors: ["white"],
+            },
           },
-        },
-        yaxis: {
-          labels: {
-            show: false,
+      
+          xaxis: {
+            categories: [
+              "Счастье",
+              "Злость",
+              "Отвращение",
+              "Страх",
+              "Грусть",
+              "Удивление",
+              "Нейтральный",
+            ],
+            labels: {
+              show: true,
+              style: {
+                fontSize: "16px",
+                colors: ["lightgrey"],
+              },
+            },
+            position: "top",
+            axisBorder: {
+              show: false,
+            },
+            axisTicks: {
+              show: false,
+            },
           },
-        },
-        title: {
-          text: "Спектр эмоций человека",
-          floating: true,
-          offsetY: 330,
-          align: "center",
-          style: {
-            color: "#444",
+          yaxis: {
+            max: 100,
+            labels: {
+              show: true,
+              offsetY: 5,
+              style: {
+                colors: ["#FFF"],
+                fontSize: "20px",
+                cssClass: 'apexcharts-yaxis-label',
+              },
+            },
           },
-        },
+          title: {
+            text: "Средний спектр эмоций человека",
+            offsetX: 0,
+            offsetY: 0,
+            align: "center",
+            style: {
+              color: "lightgrey",
+              fontSize: "16px",
+              fontFamily: "Inter",
+            },
+          },
+          tooltip: {
+            enabled: false,
+          },
       });
     
       return (
@@ -93,7 +103,7 @@ const Results = () => {
           <div className={s.chart}>
             {location.state.personsResponseJson.map((o) => <div>
             
-            <p>{o.emotions.person}</p>
+            <p>Человек: {o.emotions.person}</p>
             <Chart
             
               options={options}
