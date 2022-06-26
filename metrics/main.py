@@ -6,6 +6,7 @@ import os
 import cv2
 import numpy as np
 import time
+import csv
 
 def get_all_files(folder):
     file_list = []
@@ -91,24 +92,6 @@ class Recognizer:
         
         return current_person
 
-def __get_emotion_by_index(index):
-    if index == 0:
-        return "angry"
-    elif index == 1:
-        return "disgust"
-    elif index == 2:
-        return "fear"
-    elif index == 3:
-        return "happy"
-    elif index == 4:
-        return "sad"
-    elif index == 5:
-        return "surprise"
-    elif index == 6:
-        return "neutral"
-
-    return "unknown"
-
 def __get_max_emotion(obj):
     emotions = [float(obj["angry"]), float(obj["disgust"]), float(obj["fear"]), float(obj["happy"]), float(obj["sad"]), float(obj["surprise"]), float(obj["neutral"])]
     maximal = max(emotions)
@@ -117,25 +100,47 @@ def __get_max_emotion(obj):
             return i
 
 if __name__ == "__main__":
+    my_dict = {}
+
     recognizer = Recognizer()
-    emotions = os.listdir("emotions")
+    filename_index = 0
+    examples = os.listdir("examples")
     s = 0
 
     current_time = time.time()
 
-    for emotion in emotions:
-        faces = recognizer.detect_faces(os.path.join(os.getcwd(), 'emotions', emotion))
-        for face in faces:
-            emotions_of_person = recognizer.emotion(face)
-            index = __get_max_emotion(emotions_of_person)
-            emotion_of_person = __get_emotion_by_index(index)
-            print(emotion_of_person, emotion.split("_")[0])
-            if emotion_of_person == "surprise":
-                if emotion.split("_")[0] == "fear" or emotion.split("_")[0] == "surprise":
-                    s += 1    
-            elif emotion_of_person == emotion.split("_")[0]:
-                s += 1
-            os.remove(face)
+    for example in examples:
+        count = 0
+        vidcap = cv2.VideoCapture(f'./examples/{example}')
+        success,image = vidcap.read()
+        success = True
+        while success:
+            vidcap.set(cv2.CAP_PROP_POS_MSEC,(count * 1000))
+            success,image = vidcap.read()
+            print ('Read a new frame: ', success)
+            try:
+                cv2.imwrite(f'frame{filename_index}.jpg', image)
+            except:
+                success = False
+                continue
+
+            faces = recognizer.detect_faces(os.path.join(os.getcwd(), f'frame{filename_index}.jpg'))
+            for face in faces:
+                emotions_of_person = recognizer.emotion(face)
+                index = __get_max_emotion(emotions_of_person)
+                my_dict[example.split("_")[0]] = index
+                os.remove(face)
+
+            os.remove(f'frame{filename_index}.jpg')
+
+            count += 1
+            filename_index += 1
+
+    with open('metrics.csv', 'w') as f:
+        f.write(f'filename,emotion')
+        for dict in my_dict:
+            f.write(f'{dict},{my_dict[dict]}')
+            f.write('\n')
+
 
     print(time.time() - current_time)
-    print(f'{s} / {len(emotions)}', s / len(emotions))
